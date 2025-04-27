@@ -17,9 +17,9 @@ function App() {
           <Route path="/" element={<Login />} />
           {/* protected route  */}
           <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/todo" element={<Todo />} />
-          <Route path="/*" element={<NotFound/>}/>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/todo" element={<Todo />} />
+            <Route path="/*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
