@@ -19,3 +19,15 @@
   --text-18: 18px;
   --text-20: 20px;
 }
+
+@layer components{
+  .input{
+    @apply border border-slate-600 py-2 px-4 rounded-md block w-full text-sm mt-2
+  }
+  .button{
+    @apply bg-indigo-500 py-2 px-4 text-white w-full rounded-md
+  }
+  .flex-center{
+    @apply flex items-center
+  }
+}
