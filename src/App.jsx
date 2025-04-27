@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Todo from "./pages/Todo";
 import { ToastContainer } from "react-toastify";
 import Layout from "./pages/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/*" element={<NotFound/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
