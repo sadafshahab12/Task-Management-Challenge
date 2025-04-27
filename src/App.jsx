@@ -4,6 +4,7 @@ import Signup from "./register/SignUp";
 import Dashboard from "./pages/Dashboard";
 import Todo from "./pages/Todo";
 import { ToastContainer } from "react-toastify";
+import Layout from "./pages/Layout";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Signup />} />
           {/* protected route  */}
-          {/* <Route element={<Layout />}> */}
+          <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tasks" element={<Todo />} />
-          {/* </Route> */}
+          </Route>
         </Routes>
       </BrowserRouter>
       <ToastContainer />

@@ -2,6 +2,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { auth } from "../../firebaseConfig";
+import SideBar from "../components/ui/SideBar";
+import Header from "../components/ui/Header";
 
 const Layout = () => {
   const [user, setUser] = useState(null);
