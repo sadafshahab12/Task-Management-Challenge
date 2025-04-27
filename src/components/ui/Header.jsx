@@ -27,8 +27,12 @@ const Header = () => {
         {loading ? (
           <p>Loading...</p> // jab tak auth response nahi deta
         ) : userInfo ? (
-          <div className="flex  items-center gap-6">
+          <div className="flex-center gap-6">
+            <div className="flex-center ">
+
             <p>{userInfo.firstName}</p>
+            <p className="text-3xl font-black uppercase  bg-indigo-200 h-10 w-10 rounded-full flex-center justify-center">{userInfo.firstName.charAt(0)}</p>
+            </div>
             <button className="button w-auto" onClick={handleLogout}>
               Logout
             </button>

@@ -17,7 +17,7 @@ function App() {
           {/* protected route  */}
           <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/tasks" element={<Todo />} />
+          <Route path="/todo" element={<Todo />} />
           </Route>
         </Routes>
       </BrowserRouter>

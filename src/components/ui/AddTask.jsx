@@ -1,5 +1,5 @@
 import React from "react";
-import { Context } from "../../context/userContext";
+import { Context } from "../../context/TaskContext";
 
 const AddTask = () => {
   const {
@@ -34,7 +34,7 @@ const AddTask = () => {
             name="taskDescription"
             value={taskData.taskDescription}
             onChange={handleOnChange}
-          />
+          ></textarea>
         </div>
         <div className="mb-3">
           <label>Assign Task to: </label>
@@ -49,14 +49,18 @@ const AddTask = () => {
         </div>
         <div className="mb-3">
           <label>Task Status</label>
-          <input
+          <select
             type="text"
             placeholder="Task Status"
             className="input"
             name="taskStatus"
             value={taskData.taskStatus}
             onChange={handleOnChange}
-          />
+          >
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">done</option>
+          </select>
         </div>
         <div className="mb-3">
           <label>Task Date</label>
@@ -71,14 +75,18 @@ const AddTask = () => {
 
         <div className="mb-3">
           <label className="text-sm">Level</label>
-          <input
+          <select
             type="text"
-            placeholder="Enter Task Level"
+            placeholder="Task Level"
             className="input"
             name="level"
             value={taskData.level}
             onChange={handleOnChange}
-          />
+          >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
         </div>
         <button type="submit" className="button" disabled={loading}>
           {loading

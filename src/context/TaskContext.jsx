@@ -11,14 +11,18 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 export const UserProvider = ({ children }) => {
+
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+
   const [taskData, setTaskData] = useState({
     taskTitle: "",
     assignedTo: "",
+    taskDescription: "",
     level: "",
     taskStatus: "",
     taskDate: "",
@@ -26,6 +30,7 @@ export const UserProvider = ({ children }) => {
   const [taskList, setTaskList] = useState([]);
   const [editTaskId, setEditTaskId] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
+
   const openModal = () => {
     setIsOpenModal(true);
   };
@@ -58,13 +63,17 @@ export const UserProvider = ({ children }) => {
       setTaskData({
         taskTitle: "",
         assignedTo: "",
+        taskDescription: "",
         taskStatus: "",
         taskDate: "",
         level: "",
       });
       getTasks(); //Refresh list
+      toast.success("Task Created Successfully!");
+      
     } catch (error) {
       console.error("Error adding task:", error);
+      toast.error("Failed in Creating Task");
     }
     setLoading(false);
     closeModal();
@@ -85,17 +94,11 @@ export const UserProvider = ({ children }) => {
   const deleteTaskId = async (id) => {
     try {
       const taskRef = doc(db, "tasks", id);
-      const tasksSnap = await getDoc(taskRef);
-      if (tasksSnap.exists()) {
-        const taskData = tasksSnap.data();
-        await addDoc(collection, "trash", taskData);
-        await deleteDoc(taskRef);
-        toast.success("Task moved to Trash!");
-        getTasks();
-      }
+      await deleteDoc(taskRef);
+      getTasks();
+      toast.success("Task deleted successfully");
     } catch (error) {
-      console.error("Error moving task to Trash:", error);
-      toast.error("Failed to move to Trash!");
+      console.error("Error deleting task:", error);
     }
   };
 
@@ -105,6 +108,7 @@ export const UserProvider = ({ children }) => {
     setTaskData({
       taskTitle: task.taskTitle,
       assignedTo: task.assignedTo,
+      taskDescription: task.taskDescription,
       taskStatus: task.taskStatus,
       taskDate: task.taskDate,
       level: task.level,
