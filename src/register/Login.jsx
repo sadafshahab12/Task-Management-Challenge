@@ -37,13 +37,13 @@ const Login = () => {
     }
   };
   return (
-    <div className="grid grid-cols-2 items-center">
+    <div className="grid grid-cols-2 items-center h-screen px-10">
       <div className="space-y-3">
         <h1 className="text-5xl">Welcome Back! Let’s Get Things Done</h1>
         <p>Login to access your tasks and keep your workflow on track.</p>
       </div>
       <div>
-        <h1>Login</h1>
+        <h1 className="text-center font-bold text-3xl">Login</h1>
         <form onSubmit={handleLogin}>
           <label>Email address</label>
           <input
@@ -65,11 +65,11 @@ const Login = () => {
             onChange={handleOnChange}
           />
 
-          <button type="submit" className="button">
+          <button type="submit" className="button my-5">
             Login
           </button>
           <p>
-            Create an Account?<a href="/signup">Sign Up </a>
+            Create an Account?<a href="/">Sign Up </a>
           </p>
           <p>Forget Password</p>
         </form>
