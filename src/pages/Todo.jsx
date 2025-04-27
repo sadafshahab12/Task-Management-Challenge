@@ -17,7 +17,7 @@ const Todo = () => {
   } = Context();
   return (
     <div>
-      <div className="flex-center justify-between">
+      <div className="flex-center justify-between items-center mb-4 pt-5 pb-2 border-b border-gray-100">
         <h1 className="text-2xl pb-4 font-bold">Tasks Board</h1>
         <button className="button w-auto cursor-pointer" onClick={openModal}>
           {" "}
@@ -40,7 +40,7 @@ const Todo = () => {
           </div>
         )}
       </div>
-      <div className="task-card grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="task-card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {taskList.length > 0 ? (
           taskList.map((task) => (
             <div

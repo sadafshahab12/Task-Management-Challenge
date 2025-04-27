@@ -11,11 +11,9 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 export const UserProvider = ({ children }) => {
-
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -70,7 +68,6 @@ export const UserProvider = ({ children }) => {
       });
       getTasks(); //Refresh list
       toast.success("Task Created Successfully!");
-      
     } catch (error) {
       console.error("Error adding task:", error);
       toast.error("Failed in Creating Task");
