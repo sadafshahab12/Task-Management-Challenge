@@ -31,9 +31,10 @@ const SideBar = () => {
           alt="task"
           className="w-10 h-10"
         />
-        <h1>Task Manager</h1>
+        <h1 className="font-bold text-2xl md:block hidden">Task Manager</h1>
+        <h1 className="font-bold text-2xl md:hidden  block">TM</h1>
       </div>
-      <div>
+      <div className="md:block hidden">
         <button className="button w-full" onClick={openModal}>
           + New Task{" "}
         </button>
@@ -84,6 +85,14 @@ const SideBar = () => {
       </div>
       {/* -----------------  */}
       <div className="space-y-5 md:hidden block">
+        <div className="md:hidden block text-center ">
+          <button
+            className="button w-auto px-4 text-2xl font-black"
+            onClick={openModal}
+          >
+            +{" "}
+          </button>
+        </div>
         <a
           href="/dashboard"
           className="flex-center justify-center gap-3 cursor-pointer"
@@ -122,12 +131,18 @@ const SideBar = () => {
         >
           <FaTrash className="w-6 h-6" />
         </a>
-        <button className="button mx-auto px-2 w-auto md:hidden block" onClick={handleLogout}>
-          <IoIosLogOut className="w-5 h-5"  />
+        <button
+          className="button mx-auto px-2 w-auto md:hidden block"
+          onClick={handleLogout}
+        >
+          <IoIosLogOut className="w-5 h-5" />
         </button>
       </div>
       <div>
-        <button className="button w-full md:block hidden" onClick={handleLogout}>
+        <button
+          className="button w-full md:block hidden"
+          onClick={handleLogout}
+        >
           Logout
         </button>
       </div>
