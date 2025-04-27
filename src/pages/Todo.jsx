@@ -16,7 +16,7 @@ const Todo = () => {
     startEditTask,
   } = Context();
   return (
-    <div>
+    <div className="p-5">
       <div className="flex-center justify-between items-center mb-4 pt-5 pb-2 border-b border-gray-100">
         <h1 className="text-2xl pb-4 font-bold">Tasks Board</h1>
         <button className="button w-auto cursor-pointer" onClick={openModal}>
@@ -56,13 +56,13 @@ const Todo = () => {
                 <p>{task.level}</p>
               </div>
               <div className="flex-center gap-3 justify-between">
-                <FaTrash
-                  className="cursor-pointer"
-                  onClick={() => deleteTaskId(task.id)}
-                />
                 <FiEdit
                   className="cursor-pointer"
                   onClick={() => startEditTask(task)}
+                />
+                <FaTrash
+                  className="cursor-pointer"
+                  onClick={() => deleteTaskId(task.id)}
                 />
               </div>
             </div>

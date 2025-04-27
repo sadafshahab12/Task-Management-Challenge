@@ -7,9 +7,22 @@ import { RiTeamFill } from "react-icons/ri";
 import { Context } from "../../context/TaskContext";
 import AddTask from "./AddTask";
 import { IoCloseOutline } from "react-icons/io5";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebaseConfig";
+import { useNavigate } from "react-router-dom";
+import { IoIosLogOut } from "react-icons/io";
 
 const SideBar = () => {
   const { openModal, isOpenModal, closeModal } = Context();
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (error) {
+      console.log("Logout Error", error);
+    }
+  };
   return (
     <div className="space-y-6">
       <div className=" flex items-center gap-3">
@@ -21,7 +34,7 @@ const SideBar = () => {
         <h1>Task Manager</h1>
       </div>
       <div>
-        <button className="button w-auto" onClick={openModal}>
+        <button className="button w-full" onClick={openModal}>
           + New Task{" "}
         </button>
       </div>
@@ -41,7 +54,7 @@ const SideBar = () => {
           </div>
         )}
       </div>
-      <div className="space-y-3">
+      <div className="space-y-3 hidden md:block">
         <a href="/dashboard" className="flex-center gap-3 cursor-pointer">
           <LuLayoutDashboard />
           <p>Dashboard</p>
@@ -68,6 +81,55 @@ const SideBar = () => {
           <FaTrash />
           <p>Trash</p>
         </a>
+      </div>
+      {/* -----------------  */}
+      <div className="space-y-5 md:hidden block">
+        <a
+          href="/dashboard"
+          className="flex-center justify-center gap-3 cursor-pointer"
+        >
+          <LuLayoutDashboard className="w-6 h-6" />
+        </a>
+
+        <a
+          href="/todo"
+          className="flex-center justify-center  gap-3 cursor-pointer"
+        >
+          <LuListTodo className="w-6 h-6" />
+        </a>
+        <a
+          href="/pending"
+          className="flex-center justify-center gap-3 cursor-pointer"
+        >
+          <MdPendingActions className="w-6 h-6" />
+        </a>
+        <a
+          href="/completed"
+          className="flex-center justify-center gap-3 cursor-pointer"
+        >
+          <FaCircleCheck className="w-6 h-6" />
+        </a>
+
+        <a
+          href="/team"
+          className="flex-center justify-center gap-3 cursor-pointer"
+        >
+          <RiTeamFill className="w-6 h-6" />
+        </a>
+        <a
+          href="/deletedTask"
+          className="flex-center justify-center gap-3 cursor-pointer"
+        >
+          <FaTrash className="w-6 h-6" />
+        </a>
+        <button className="button mx-auto px-2 w-auto md:hidden block" onClick={handleLogout}>
+          <IoIosLogOut className="w-5 h-5"  />
+        </button>
+      </div>
+      <div>
+        <button className="button w-full md:block hidden" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );

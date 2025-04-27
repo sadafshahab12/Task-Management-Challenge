@@ -1,19 +1,8 @@
-import { auth } from "../../../firebaseConfig";
-import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/TaskContext";
 
 const Header = () => {
   const { userInfo, loading } = Context();
-  const navigate = useNavigate();
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      navigate("/login");
-    } catch (error) {
-      console.log("Logout Error", error);
-    }
-  };
+
   return (
     <div className="grid grid-cols-2 items-center px-10 py-2 bg-gray-100">
       <div>
@@ -37,9 +26,6 @@ const Header = () => {
                   userInfo.firstName.slice(1).toLowerCase()}
               </p>
             </div>
-            <button className="button w-auto" onClick={handleLogout}>
-              Logout
-            </button>
           </div>
         ) : (
           <p>No User</p> // login nahi to No User
