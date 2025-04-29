@@ -50,7 +50,7 @@ const SideBar = () => {
               >
                 <IoCloseOutline className="cursor-pointer" />
               </button>
-              <LinkddTask />
+              <AddTask />
             </div>
           </div>
         )}
