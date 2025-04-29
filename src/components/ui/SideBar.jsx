@@ -9,7 +9,7 @@ import AddTask from "./AddTask";
 import { IoCloseOutline } from "react-icons/io5";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebaseConfig";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 
 const SideBar = () => {
@@ -50,38 +50,38 @@ const SideBar = () => {
               >
                 <IoCloseOutline className="cursor-pointer" />
               </button>
-              <AddTask />
+              <LinkddTask />
             </div>
           </div>
         )}
       </div>
       <div className="space-y-3 hidden md:block">
-        <a href="/dashboard" className="flex-center gap-3 cursor-pointer">
+        <Link to="/dashboard" className="flex-center gap-3 cursor-pointer">
           <LuLayoutDashboard />
           <p>Dashboard</p>
-        </a>
+        </Link>
 
-        <a href="/todo" className="flex-center gap-3 cursor-pointer">
+        <Link to="/todo" className="flex-center gap-3 cursor-pointer">
           <LuListTodo />
           <p>ToDo</p>
-        </a>
-        <a href="/pending" className="flex-center gap-3 cursor-pointer">
+        </Link>
+        <Link to="/pending" className="flex-center gap-3 cursor-pointer">
           <MdPendingActions />
           <p>InProgress</p>
-        </a>
-        <a href="/completed" className="flex-center gap-3 cursor-pointer">
+        </Link>
+        <Link to="/completed" className="flex-center gap-3 cursor-pointer">
           <FaCircleCheck />
           <p>Completed</p>
-        </a>
+        </Link>
 
-        <a href="/team" className="flex-center gap-3 cursor-pointer">
+        <Link to="/team" className="flex-center gap-3 cursor-pointer">
           <RiTeamFill />
           <p>Team</p>
-        </a>
-        <a href="/deletedTask" className="flex-center gap-3 cursor-pointer">
+        </Link>
+        <Link to="/deletedTask" className="flex-center gap-3 cursor-pointer">
           <FaTrash />
           <p>Trash</p>
-        </a>
+        </Link>
       </div>
       {/* -----------------  */}
       <div className="space-y-5 md:hidden block">
@@ -93,44 +93,44 @@ const SideBar = () => {
             +{" "}
           </button>
         </div>
-        <a
-          href="/dashboard"
+        <Link
+          to="/dashboard"
           className="flex-center justify-center gap-3 cursor-pointer"
         >
           <LuLayoutDashboard className="w-6 h-6" />
-        </a>
+        </Link>
 
-        <a
-          href="/todo"
+        <Link
+          to="/todo"
           className="flex-center justify-center  gap-3 cursor-pointer"
         >
           <LuListTodo className="w-6 h-6" />
-        </a>
-        <a
-          href="/pending"
+        </Link>
+        <Link
+          to="/pending"
           className="flex-center justify-center gap-3 cursor-pointer"
         >
           <MdPendingActions className="w-6 h-6" />
-        </a>
-        <a
-          href="/completed"
+        </Link>
+        <Link
+          to="/completed"
           className="flex-center justify-center gap-3 cursor-pointer"
         >
           <FaCircleCheck className="w-6 h-6" />
-        </a>
+        </Link>
 
-        <a
-          href="/team"
+        <Link
+          to="/team"
           className="flex-center justify-center gap-3 cursor-pointer"
         >
           <RiTeamFill className="w-6 h-6" />
-        </a>
-        <a
-          href="/deletedTask"
+        </Link>
+        <Link
+          to="/deletedTask"
           className="flex-center justify-center gap-3 cursor-pointer"
         >
           <FaTrash className="w-6 h-6" />
-        </a>
+        </Link>
         <button
           className="button mx-auto px-2 w-auto md:hidden block"
           onClick={handleLogout}
